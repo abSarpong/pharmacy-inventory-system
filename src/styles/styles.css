@@ -11,7 +11,7 @@ body {
   padding: 40px 0;
 }
 .container {
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
 }
 .wrapper {
@@ -49,7 +49,7 @@ body {
 .button {
   padding: 12px 16px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   background-color: #323232;
   color: #fafafc;
   border-radius: 6px;
@@ -59,7 +59,29 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 16px 0 48px 0;
+  margin: 16px 0 42px 0;
+}
+.input {
+  padding: 16px;
+  border: 1px solid #e8e8e8;
+  width: 90%;
+  margin-bottom: 24px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+.input-label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333333;
+  font-weight: 600;
+  display: block;
+}
+.form-card {
+  padding: 62px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
 }
 /* utilities */
 .center-text {
@@ -76,4 +98,7 @@ body {
 }
 .small-text {
   font-size: 14px;
+}
+.fluid {
+  width: 100%;
 }
