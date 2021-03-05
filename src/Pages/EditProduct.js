@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import InputField from "../Components/InputField";
+import Button from "../Components/Button";
 
 const EditProduct = () => {
   const { product } = useParams();
@@ -41,7 +43,7 @@ const EditProduct = () => {
         <form onSubmit={editProduct}>
           <div>
             <label className="input-label">Product name</label>
-            <input
+            <InputField
               className="input"
               type="text"
               placeholder="Product name"
@@ -52,7 +54,7 @@ const EditProduct = () => {
           </div>
           <div>
             <label className="input-label">Price</label>
-            <input
+            <InputField
               className="input"
               type="text"
               placeholder="Eg. 5.00"
@@ -61,10 +63,7 @@ const EditProduct = () => {
               onChange={handleOnChange}
             />
           </div>
-          <div style={{ paddingTop: "8px" }}></div>
-          <button className="button fluid" type="submit">
-            Save Product
-          </button>
+          <Button label="Save Product" buttonType="fluid" />
         </form>
       </div>
     </div>

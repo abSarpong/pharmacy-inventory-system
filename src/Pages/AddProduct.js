@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Button from "../Components/Button";
+import InputField from "../Components/InputField";
 
 const AddProduct = () => {
   const history = useHistory();
@@ -47,7 +49,7 @@ const AddProduct = () => {
         <form onSubmit={addProduct} className="field-wrapper">
           <div>
             <label className="input-label">Product name</label>
-            <input
+            <InputField
               className="input"
               type="text"
               placeholder="Product name"
@@ -58,7 +60,7 @@ const AddProduct = () => {
           </div>
           <div>
             <label className="input-label">Price</label>
-            <input
+            <InputField
               className="input"
               type="text"
               placeholder="Eg. 5.00"
@@ -67,10 +69,7 @@ const AddProduct = () => {
               onChange={handleOnChange}
             />
           </div>
-          <div style={{ paddingTop: "8px" }}></div>
-          <button className="button fluid" type="submit">
-            Save Product
-          </button>
+          <Button label="Save Product" buttonType="fluid" />
         </form>
       </div>
     </div>
