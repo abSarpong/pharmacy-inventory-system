@@ -7,11 +7,12 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    getLocalData([]);
     fetch("http://www.mocky.io/v2/5c3e15e63500006e003e9795").then((res) =>
       res
         .json()
         .then((data) => {
-          getLocalData(data);
+          getLocalData(data.products);
         })
         .catch((err) => console.log(err))
     );
@@ -31,7 +32,7 @@ const Products = () => {
     var serverData = [];
 
     // prepare data from server
-    data.products.map((product) =>
+    data.map((product) =>
       serverData.push({
         id: product.id,
         name: product.name,
