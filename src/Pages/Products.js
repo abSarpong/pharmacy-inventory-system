@@ -36,6 +36,7 @@ const Products = () => {
         id: product.id,
         name: product.name,
         price: product.prices[0].price,
+        flag: true,
       })
     );
 
@@ -51,7 +52,7 @@ const Products = () => {
         </button>
       </div>
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} products={products} />
+        <ProductCard key={product.id} product={product} />
       ))}
     </div>
   );

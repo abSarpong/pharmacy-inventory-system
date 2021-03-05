@@ -14,15 +14,19 @@ const ProductCard = ({ product }) => {
         <p className="grey-300 small-text">GHS {product.price}</p>
       </div>
       <div>
-        <span className="icon">
-          <Link to={`/edit-product/${product.id}`}>
-            <HiPencilAlt style={{ color: "#333333", fontSize: 16 }} />
-          </Link>
-        </span>
+        {!product.flag ? (
+          <span className="icon">
+            <Link to={`/edit-product/${product.id}`}>
+              <HiPencilAlt style={{ color: "#333333", fontSize: 16 }} />
+            </Link>
+          </span>
+        ) : null}
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <span className="icon danger-icon" onClick={() => deleteProduct()}>
-          <HiOutlineTrash style={{ color: "#d62828", fontSize: 16 }} />
-        </span>
+        {!product.flag ? (
+          <span className="icon danger-icon" onClick={() => deleteProduct()}>
+            <HiOutlineTrash style={{ color: "#d62828", fontSize: 16 }} />
+          </span>
+        ) : null}
       </div>
     </div>
   );

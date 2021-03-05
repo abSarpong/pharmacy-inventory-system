@@ -13,9 +13,10 @@ const AddProduct = () => {
     id: Math.floor(Math.random() * 10000) + 1,
     name: state.name,
     price: state.price,
+    flag: false,
   };
 
-  const handleSubmit = (e) => {
+  const addProduct = (e) => {
     e.preventDefault();
     let cachedDate = localStorage.setItem(
       newProduct.id.toString(),
@@ -36,7 +37,7 @@ const AddProduct = () => {
         <h3 className="grey-300">Add product</h3>
       </div>
       <div className="form-card">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={addProduct}>
           <div>
             <label className="input-label">Product name</label>
             <input
