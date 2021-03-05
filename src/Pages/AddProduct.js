@@ -3,11 +3,12 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const AddProduct = () => {
+  const history = useHistory();
+  const [errorText, setErrorText] = useState("");
   const [state, setState] = useState({
     name: "",
     price: "",
   });
-  const history = useHistory();
 
   let newProduct = {
     id: Math.floor(Math.random() * 10000) + 1,
@@ -18,6 +19,11 @@ const AddProduct = () => {
 
   const addProduct = (e) => {
     e.preventDefault();
+
+    if (!state.name || !state.price) {
+      setErrorText("Can't submit empty field(s)");
+      return false;
+    }
     let cachedDate = localStorage.setItem(
       newProduct.id.toString(),
       JSON.stringify(newProduct)
@@ -37,7 +43,8 @@ const AddProduct = () => {
         <h3 className="grey-300">Add product</h3>
       </div>
       <div className="form-card">
-        <form onSubmit={addProduct}>
+        <div className="danger-alert">{errorText}</div>
+        <form onSubmit={addProduct} className="field-wrapper">
           <div>
             <label className="input-label">Product name</label>
             <input
