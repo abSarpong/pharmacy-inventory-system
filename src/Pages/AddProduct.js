@@ -15,7 +15,14 @@ const AddProduct = () => {
   let newProduct = {
     id: Math.floor(Math.random() * 10000) + 1,
     name: state.name,
-    price: state.price,
+    price: [
+      {
+        id: Math.floor(Math.random() * 10000) + 1,
+        price: state.price,
+        date: Date(Date.now()),
+      },
+    ],
+
     flag: false,
   };
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import Button from "../Components/Button";
 import ProductCard from "../Components/ProductCard";
 
 const Products = () => {
@@ -19,28 +20,25 @@ const Products = () => {
   }, []);
 
   function getLocalData(data) {
-    var cachedProducts = [],
-      // fetch data keys from localStorage
-      keys = Object.keys(localStorage),
-      i = keys.length;
+    let cachedProducts = [];
+    let keys = Object.keys(localStorage);
 
-    // get data from localStorage
-    while (i--) {
-      cachedProducts.push(JSON.parse(localStorage.getItem(keys[i])));
+    for (let i = 0; i < keys.length; i++) {
+      let reversePrice = JSON.parse(localStorage.getItem(keys[i]));
+      reversePrice.price.reverse();
+      cachedProducts.push(reversePrice);
     }
 
-    var serverData = [];
+    let serverData = [];
 
-    // prepare data from server
     data.map((product) =>
       serverData.push({
         id: product.id,
         name: product.name,
-        price: product.prices[0].price,
+        price: product.prices,
         flag: true,
       })
     );
-
     setProducts([...products, ...cachedProducts, ...serverData]);
   }
 
@@ -48,10 +46,12 @@ const Products = () => {
     <div className="container">
       <div className="page-title-section">
         <h3 className="grey-300">Products</h3>
-        <button className="button" onClick={() => history.push("/add-product")}>
-          Add Product
-        </button>
+        <Button
+          label=" Add Product"
+          onClick={() => history.push("/add-product")}
+        />
       </div>
+
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
