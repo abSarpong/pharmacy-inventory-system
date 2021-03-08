@@ -2,7 +2,7 @@ import React from "react";
 import { HiOutlineCurrencyDollar, HiOutlineCalendar } from "react-icons/hi";
 
 const History = ({ product }) => {
-  let history = product.price.map((price) => {
+  let priceHistoryList = product.price.map((price) => {
     let date,
       dateObject,
       day,
@@ -60,13 +60,13 @@ const History = ({ product }) => {
         <div className="list">
           <div className="product-card-body">
             &#8213;&nbsp;&nbsp;
-            <HiOutlineCurrencyDollar className="new-icon" />
+            <HiOutlineCurrencyDollar className="icon" />
             &nbsp;&nbsp;
             <p className="body-text">Ghs {price.price}</p>
           </div>
           &nbsp;&nbsp;&#xb7;&nbsp;&nbsp;
           <div className="product-card-body">
-            <HiOutlineCalendar className="new-icon" />
+            <HiOutlineCalendar className="icon" />
             &nbsp;&nbsp;
             <p className="body-text">
               {month} {day}, {year}
@@ -80,7 +80,7 @@ const History = ({ product }) => {
   return (
     <div>
       <h4>Price history</h4>
-      {history}
+      {priceHistoryList}
     </div>
   );
 };

@@ -36,11 +36,12 @@ const EditProduct = () => {
 
   const editProduct = (e) => {
     e.preventDefault();
-    console.log(priceState.price);
+
     let editCachedDate = localStorage.setItem(
       editedProduct.id.toString(),
       JSON.stringify(editedProduct)
     );
+
     history.push({ pathname: "/", data: editCachedDate });
     setNewState("");
   };
@@ -72,14 +73,14 @@ const EditProduct = () => {
             <label className="input-label">Price</label>
             <InputField
               className="input"
-              type="text"
+              type="number"
               placeholder="Eg. 5.00"
               name="price"
               value={priceState.price}
               onChange={(e) => setPriceState({ price: e.target.value })}
             />
           </div>
-          <Button label="Save Product" buttonType="fluid" />
+          <Button label="Save Product" buttonStyle="fluid" />
         </form>
       </div>
     </div>

@@ -33,6 +33,7 @@ const AddProduct = () => {
       setErrorText("Can't submit empty field(s)");
       return false;
     }
+
     let cachedDate = localStorage.setItem(
       newProduct.id.toString(),
       JSON.stringify(newProduct)
@@ -43,7 +44,7 @@ const AddProduct = () => {
 
   const handleOnChange = (e) => {
     const value = e.target.value;
-    setState({ ...state, [e.target.name]: value });
+    setState((state) => ({ ...state, [e.target.name]: value }));
   };
 
   return (
@@ -69,14 +70,14 @@ const AddProduct = () => {
             <label className="input-label">Price</label>
             <InputField
               className="input"
-              type="text"
+              type="number"
               placeholder="Eg. 5.00"
               name="price"
               value={state.price}
               onChange={handleOnChange}
             />
           </div>
-          <Button label="Save Product" buttonType="fluid" />
+          <Button label="Save Product" buttonStyle="fluid" />
         </form>
       </div>
     </div>
